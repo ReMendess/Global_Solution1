@@ -35,7 +35,7 @@
 
 # <a name="c2"></a>2. Descrição da Solução Proposta
 
-A solução proposta consiste em uma plataforma inteligente de monitoramento industrial, baseada na integração de tecnologias como sensores IoT, armazenamento em nuvem, inteligência artificial e visualização de dados. O objetivo é detectar antecipadamente possíveis falhas em equipamentos, reduzindo paradas inesperadas, otimizando manutenções e promovendo segurança operacional.
+A solução proposta consiste em uma plataforma inteligente de monitoramento ambiental em tempo real, baseada na integração de sensores IoT, armazenamento em nuvem, inteligência artificial e dashboards interativos. O objetivo é detectar antecipadamente sinais de risco geotécnico — como deslocamentos de solo, chuvas intensas e aumento de umidade —, permitindo decisões rápidas e assertivas que previnam desastres e protejam vidas.
 
 - **Coletar dados em tempo real via sensores IoT**;
 
