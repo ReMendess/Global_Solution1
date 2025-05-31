@@ -31,6 +31,8 @@ X_input = pd.DataFrame([[
 ]], columns=['Chuva_mm', 'Inclinacao_encosta', 'Nivel_saturacao', 'Vegetacao',
        'Proximidade_agua', 'Solo_cascalho', 'Solo_arenoso', 'Solo_siltoso'])
 
+X_input = X_input.loc[:, scaler.feature_names_in_]
+
 # Aplicar o mesmo scaler usado no treino
 X_input_scaled = scaler.transform(X_input)
 
