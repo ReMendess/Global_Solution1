@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import joblib
 
 # Carregar o modelo e o scaler treinado
@@ -24,29 +23,31 @@ solo_cascalho = 1 if solo == "Cascalho" else 0
 solo_arenoso = 1 if solo == "Arenoso" else 0
 solo_siltoso = 1 if solo == "Siltoso" else 0
 
-X_input = pd.DataFrame([[
-    chuva, inclinacao, saturacao, vegetacao,
-    proximidade_agua, solo_cascalho, solo_arenoso, solo_siltoso
-]], columns=[
-    'Chuva_mm', 'Inclinacao_encosta', 'Nivel_saturacao', 'Vegetacao',
-    'Proximidade_agua', 'Solo_cascalho', 'Solo_arenoso', 'Solo_siltoso'
-])
+# Criar DataFrame de entrada
+X_input = pd.DataFrame([[chuva, inclinacao, saturacao, vegetacao,
+                         proximidade_agua, solo_cascalho, solo_arenoso, solo_siltoso]],
+                       columns=[
+                           'Chuva_mm', 'Inclinacao_encosta', 'Nivel_saturacao', 'Vegetacao',
+                           'Proximidade_agua', 'Solo_cascalho', 'Solo_arenoso', 'Solo_siltoso'
+                       ])
 
-# Carregar scaler e transformar
-scaler = joblib.load('ML_Python/scaler_risco.pkl')
-X_input_scaled = scaler.transform(X_input)  # Vai funcionar agora
+# Garantir ordem e nomes exatos
+X_input = X_input.loc[:, scaler.feature_names_in_]
 
-# Fazer a predição
+# Transformar entrada
+X_input_scaled = scaler.transform(X_input)
+
+# Fazer predição
 risco = modelo.predict(X_input_scaled)[0]
 
-# Exibir o resultado
+# Exibir resultado
 st.subheader("Resultado da Predição")
 st.write(f"Nível de risco de deslizamento: **{risco:.3f}**")
 
-# Opcional: exibir uma faixa de risco
 if risco < 0.3:
     st.success("Baixo risco")
 elif risco < 0.6:
     st.warning("Risco moderado")
 else:
     st.error("Alto risco!")
+
