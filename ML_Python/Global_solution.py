@@ -12,7 +12,10 @@ st.markdown("Insira as informações ambientais para estimar o risco com base em
 # Carregar modelo
 # ---------------------
 
-modelo = joblib.load("ML_Python/modelo_risco_deslizamento.pkl")
+# Carregar scaler junto com o modelo
+scaler = joblib.load("ML_Python/scaler_risco.pkl")  # Ex: StandardScaler ou MinMaxScaler
+X_input_scaled = scaler.transform(X_input)
+risco = modelo.predict(X_input_scaled)[0]
 
 # ---------------------
 # Inputs do usuário
@@ -45,11 +48,11 @@ X_input = pd.DataFrame([{
     "Solo_arenoso": arenoso,
     "Solo_siltoso": siltoso
 }])
-
+X_input_scaled = scaler.transform(X_input)
 # ---------------------
 # Previsão
 # ---------------------
-risco = modelo.predict(X_input)[0]
+risco = modelo.predict(X_input_scaled)[0]
 risco = np.clip(risco, 0, 1)
 
 # ---------------------
