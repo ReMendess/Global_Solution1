@@ -54,6 +54,6 @@ def _criar_dados(n_samples= 2000):
         'Risco': risco,
         'Nivel de Risco': nivel_risco
     })
-
+    return df
 
 
