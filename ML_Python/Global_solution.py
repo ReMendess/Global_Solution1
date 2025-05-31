@@ -24,17 +24,17 @@ solo_cascalho = 1 if solo == "Cascalho" else 0
 solo_arenoso = 1 if solo == "Arenoso" else 0
 solo_siltoso = 1 if solo == "Siltoso" else 0
 
-# Criar DataFrame com os dados de entrada
 X_input = pd.DataFrame([[
-    chuva, inclinacao, saturacao, vegetacao, proximidade_agua,
-    solo_cascalho, solo_arenoso, solo_siltoso
-]], columns=['Chuva_mm', 'Inclinacao_encosta', 'Nivel_saturacao', 'Vegetacao',
-       'Proximidade_agua', 'Solo_cascalho', 'Solo_arenoso', 'Solo_siltoso'])
+    chuva, inclinacao, saturacao, vegetacao,
+    proximidade_agua, solo_cascalho, solo_arenoso, solo_siltoso
+]], columns=[
+    'Chuva_mm', 'Inclinacao_encosta', 'Nivel_saturacao', 'Vegetacao',
+    'Proximidade_agua', 'Solo_cascalho', 'Solo_arenoso', 'Solo_siltoso'
+])
 
-X_input = X_input.loc[:, scaler.feature_names_in_]
-
-# Aplicar o mesmo scaler usado no treino
-X_input_scaled = scaler.transform(X_input)
+# Carregar scaler e transformar
+scaler = joblib.load('ML_Python/scaler_risco.pkl')
+X_input_scaled = scaler.transform(X_input)  # Vai funcionar agora
 
 # Fazer a predição
 risco = modelo.predict(X_input_scaled)[0]
