@@ -46,7 +46,7 @@ st.write(f"Nível de risco de deslizamento: **{risco:.3f}**")
 
 if risco < 0.3:
     st.success("Baixo risco")
-elif risco < 0.6:
+elif risco < 0.7:
     st.warning("Risco moderado")
 else:
     st.error("Alto risco!")
