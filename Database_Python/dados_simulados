@@ -23,7 +23,7 @@ def _criar_dados(n_samples= 2000):
     tipo_solo = np.random.choice(['Arenoso', 'Argiloso', 'Rochoso'], size=n_samples, p=[0.3, 0.45, 0.25])
 
     mapa_Inclinacao = {'Leve': 1.05, 'Moderada': 1.15, 'Forte': 1.3}
-    mapa_solo = {'Arenoso': 1.25, 'Argiloso': 1.10, 'Rochoso': 0.95}
+    mapa_solo = {'Arenoso': 1.15, 'Argiloso': 1.05, 'Rochoso': 0.90}
     mapa_chuva = {'Sem chuva': 0, 'Chovendo': 2.5}
 
     #efeitos
@@ -32,17 +32,17 @@ def _criar_dados(n_samples= 2000):
     efeito_chuva = np.vectorize(mapa_chuva.get)(Chuva)
 
     risco = (
-        (temperatura - 20) * 0.05 +
-        (Umidade - 50) * 0.2 +
-        vibracao_total * 1.5 +
+        (temperatura - 20) * 0.015 +
+        (Umidade - 50) * 0.1 +
+        vibracao_total * 1.2 +
         efeito_chuva
     ) * efeito_inclinacao * efeito_solo
 
     risco += np.random.normal(loc=0, scale=0.4, size=n_samples)
     risco = np.clip(risco, a_min=0, a_max=None)
 
-    nivel_risco = np.where(risco < 2.0, 'Baixo',
-                           np.where(risco < 4.0, 'Médio', 'Alto'))
+    nivel_risco = np.where(risco < 3.35, 'Baixo',
+                           np.where(risco < 5.5, 'Médio', 'Alto'))
     # Criando o DataFrame final
     df = pd.DataFrame({
         'Temperatura': temperatura,
@@ -55,5 +55,7 @@ def _criar_dados(n_samples= 2000):
         'Nivel de Risco': nivel_risco
     })
     return df
+
+
 
 
