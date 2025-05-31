@@ -4,7 +4,7 @@ import numpy as np
 import joblib
 
 # Carregar o modelo e o scaler treinado
-modelo = joblib.load("ML_Python/modelo_risco.pkl")
+modelo = joblib.load("ML_Python/modelo_risco_deslizamento.pkl")
 scaler = joblib.load("ML_Python/scaler_risco.pkl")
 
 # Interface
