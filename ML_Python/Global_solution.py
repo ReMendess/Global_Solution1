@@ -3,8 +3,8 @@ import pandas as pd
 import joblib
 
 # Carregar o modelo e o scaler treinado
-modelo = joblib.load("ML_Python/modelo_risco_deslizamento.pkl")
-scaler = joblib.load("ML_Python/scaler_risco (1).pkl")
+modelo = joblib.load("ML_Python/modelo_risco_deslizamento (1).pkl")
+scaler = joblib.load("ML_Python/scaler_risco (2).pkl")
 
 # Interface
 st.title("Predição de Risco de Deslizamento")
