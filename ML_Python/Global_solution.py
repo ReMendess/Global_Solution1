@@ -12,7 +12,7 @@ st.markdown("Insira as informações ambientais para estimar o risco com base em
 # Carregar modelo
 # ---------------------
 
-modelo = joblib.load("modelo_risco_deslizamento.pkl")
+modelo = joblib.load("ML_Python/modelo_risco_deslizamento.pkl")
 
 # ---------------------
 # Inputs do usuário
