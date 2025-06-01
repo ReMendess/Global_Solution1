@@ -10,31 +10,36 @@ Testamos diferentes modelos e optamos pelo RandomForestRegressor. Apesar de demo
 
 <img src="/assets/10.png">
 
-# Programa_Monitoramento.py
+# modelo_risco_deslizamento.pkl
 
-Esta é uma aplicação Python que realiza o monitoramento dos últimos registros, por região, dentro da tabela.
-Caso o último registro detectado seja de nivel de risco alto, é apresentado um alerta de deslizamento.
-Criado utilizando Streamlit.
+Modelo treinado salvo.
 
-Link: https://globalsolution1-dzrtvby4c3n8krkph9ff9u.streamlit.app
+# scaler_risco.pkl
 
+Objeto que contém o StandardScaler do Scikit-Learn já ajustado (fitado) nos dados de treino.
+Tem a média e o desvio padrão de cada feature usada no treino.
+
+# Global_solution.py
+
+Aplicação no Streamlit de predição de risco de deslizamento, utilizando o modelo treinado.
+Permite o usuário selecionar as variáveis observadas ou simuladas e obter uma predição básica de risco de deslizamento da área.
+Link da aplicação: https://globalsolution1-2nn8pxsmadkraeeuthm24b.streamlit.app
+
+
+<img src="/assets/7.png">
+
+<img src="/assets/8.png">
 
 
 ## 📦 Requisitos
 
 - Streamlit
 - Oracledb
+- Scikit-learn
 - Pandas
 - Matplotlib
+- Numpy
+- Joblib
+- Seaborn
 
 
-# Criando_Tabela.sql
-Foi criado um banco de dados Oracle para a captação de registros de sensores.
-
-<img src="/assets/4.png">
-
-<img src="/assets/2.png">
-
-<img src="/assets/1.png">
-
-<img src="/assets/3.png">
