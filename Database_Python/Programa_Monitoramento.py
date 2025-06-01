@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 # Configuração do banco Oracle
 DSN = "oracle.fiap.com.br:1521/ORCL"
-USER = "RM563145"
-PASSWORD = "260399"
+USER = "RM562061"
+PASSWORD = "240805"
 
 # Função de conexão
 def obter_conexao():
