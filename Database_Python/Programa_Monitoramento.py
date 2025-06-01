@@ -23,19 +23,28 @@ def obter_ultimos_registros():
     if conn is None:
         return pd.DataFrame()
 
-    query = """
-        SELECT * FROM (
-            SELECT 
-                REGIAO, TEMPERATURA, UMIDADE, TIPO_SOLO, INCLINACAO, 
-                CHUVA, VIBRACAO, RISCO, NIVEL_RISCO,
-                ROW_NUMBER() OVER (PARTITION BY REGIAO ORDER BY ROWID DESC) as rn
-            FROM SENSORES_REGIAO
-        ) WHERE rn = 1
-    """
+    try:
+        cursor = conn.cursor()
+        query = """
+            SELECT * FROM (
+                SELECT 
+                    REGIAO, TEMPERATURA, UMIDADE, TIPO_SOLO, INCLINACAO, 
+                    CHUVA, VIBRACAO, RISCO, NIVEL_RISCO,
+                    ROW_NUMBER() OVER (PARTITION BY REGIAO ORDER BY ROWID DESC) as rn
+                FROM SENSORES_REGIAO
+            ) WHERE rn = 1
+        """
+        cursor.execute(query)
+        columns = [col[0] for col in cursor.description]
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=columns)
+        cursor.close()
+        conn.close()
+        return df
+    except Exception as e:
+        st.error(f"Erro ao buscar dados: {e}")
+        return pd.DataFrame()
 
-    df = pd.read_sql(query, conn)
-    conn.close()
-    return df
 
 # Função para contar alertas por região
 def obter_frequencia_alertas():
@@ -43,16 +52,26 @@ def obter_frequencia_alertas():
     if conn is None:
         return pd.DataFrame()
 
-    query = """
-        SELECT REGIAO, COUNT(*) AS TOTAL_ALERTAS
-        FROM SENSORES_REGIAO
-        WHERE NIVEL_RISCO = 'Alto'
-        GROUP BY REGIAO
-        ORDER BY REGIAO
-    """
-    df = pd.read_sql(query, conn)
-    conn.close()
-    return df
+    try:
+        cursor = conn.cursor()
+        query = """
+            SELECT REGIAO, COUNT(*) AS TOTAL_ALERTAS
+            FROM SENSORES_REGIAO
+            WHERE NIVEL_RISCO = 'Alto'
+            GROUP BY REGIAO
+            ORDER BY REGIAO
+        """
+        cursor.execute(query)
+        columns = [col[0] for col in cursor.description]
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=columns)
+        cursor.close()
+        conn.close()
+        return df
+    except Exception as e:
+        st.error(f"Erro ao buscar frequência de alertas: {e}")
+        return pd.DataFrame()
+
 
 # Streamlit 
 st.set_page_config(page_title="Monitoramento de Risco", layout="wide")
