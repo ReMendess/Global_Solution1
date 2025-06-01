@@ -73,6 +73,8 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 
 # <a name="c4"></a>4. Solução Desenvolvida
 
+#A Solução está separada por diretórios dentro desse repositório. Ela está totalmente funcional e documentada.
+
 **Sensores**
 - Simulação de sensores pelo Wokwi;
 - Código em C, configurando e habilitando a funcionalidade dos sensores.
