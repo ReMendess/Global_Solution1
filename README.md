@@ -21,11 +21,9 @@
 
 [2. Descrição da Solução Proposta](#c2)
 
-[3. Tecnologias Propostas](#c3)
+[3. Definição das Tecnologias Utilizadas](#c3)
 
-[4. Pipeline de Dados](#c4)
-
-[5. Diagrama](#c6)
+[4. Solução Desenvolvida](#c4)
 
 <br>
 
@@ -50,10 +48,10 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 - **Emitir alertas automaticos por aplicativo, sms ou rádio, orientando possiveis evacuações ou ações**
 
 
-# <a name="c3"></a>3. Tecnologias Propostas/Planejadas
+# Tecnologias Propostas/Planejadas
 
 
-## Definição das Tecnologias Utilizadas
+## <a name="c3"></a>3 Definição das Tecnologias Utilizadas
 
 | Camada                   | Tecnologias                                         |
 |--------------------------|-----------------------------------------------------|
@@ -64,7 +62,7 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 | **Infraestrutura**       | AWS ou Azure                                        |
 
 
-# <a name="c4"></a>4. Pipeline de Dados
+# Pipeline de Dados
 
 **Sensores IoT captam dados:**
 - Umidade excessiva no solo;
@@ -73,7 +71,7 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 - Volume de chuvas;
 - Temperatura.
 
-# Solução Desenvolvida
+# <a name="c4"></a>4. Solução Desenvolvida
 
 **Salvar dados brutos**
 - Dados coletados pelos sensores são enviados ao servidor de ingestão.
@@ -111,11 +109,3 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 - Estimativa do impacto humano e material em caso de confirmação do evento;
 - Geração automática de ordens de resposta (evacuação, isolamento de áreas, envio de equipes técnicas).
 
-
-
-
-# <a name="c6"></a>6. Diagrama
-
-<p align="center">
-<img src="diagrama.drawio (1).png" alt="Driagrama da solução"></a>
-</p>
