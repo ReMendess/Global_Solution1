@@ -89,6 +89,7 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 - Criado a tabela, MER, DER e modelo lógico;
 - Aplicação em Python de inserção automatica de dados na tabela, utilizando um arquivo .CSV;
 - Aplicação em Python de Monitoramento, utilizando Streamlit;
+- Link da aplicação de Monitoramento: https://globalsolution1-dzrtvby4c3n8krkph9ff9u.streamlit.app
 
 <p align="center">
 <img src = "assets/4.png">
@@ -112,6 +113,7 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 - Utilizando dados externos, treinamos um modelo de Machine Learning que contribui para a análise de risco de deslizamento;
 - Análise estastistica, descritiva e visual dos dados externos;
 - Utilizando o modelo de Machine Learning criado e Streamlit, desenvolvemos uma aplicação que permite o usuário prever os riscos de deslizamento com base nas variáveis que ele detectar no ambiente.
+- Link da aplicação de predição: https://globalsolution1-2nn8pxsmadkraeeuthm24b.streamlit.app
 
 <p align="center">
 <img src = "assets/9.png">
