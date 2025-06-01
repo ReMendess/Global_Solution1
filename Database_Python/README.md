@@ -8,7 +8,8 @@ A aplicação utiliza o aquivo dados.csv para alimentar a tabela.
 
 Esta é uma aplicação Python que realiza o monitoramento dos últimos registros, por região, dentro da tabela.
 Caso o último registro detectado seja de nivel de risco alto, é apresentado um alerta de deslizamento.
-
+Criado utilizando Streamlit.
+Link: https://globalsolution1-2nn8pxsmadkraeeuthm24b.streamlit.app
 <img src="/assets/5.png">
 
 ## 📦 Requisitos
