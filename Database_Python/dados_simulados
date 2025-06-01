@@ -19,6 +19,7 @@ def _criar_dados(n_samples= 2000):
     vibracao_total = np.sqrt(acc_x ** 2 + acc_y ** 2 + (acc_z - 9.81) ** 2)
 
     # Variáveis categóricas
+    Regiao = np.random.choice(['A', 'B', 'C', 'D'], size=n_samples)
     Inclinacao_terreno = np.random.choice(['Leve', 'Moderada', 'Forte'], size=n_samples, p=[0.3, 0.4, 0.3])
     tipo_solo = np.random.choice(['Arenoso', 'Argiloso', 'Rochoso'], size=n_samples, p=[0.3, 0.45, 0.25])
 
@@ -45,6 +46,7 @@ def _criar_dados(n_samples= 2000):
                            np.where(risco < 5.5, 'Médio', 'Alto'))
     # Criando o DataFrame final
     df = pd.DataFrame({
+        'Região': Regiao,
         'Temperatura': temperatura,
         'Umidade': Umidade,
         'Tipo de Solo': tipo_solo,
@@ -55,7 +57,3 @@ def _criar_dados(n_samples= 2000):
         'Nivel de Risco': nivel_risco
     })
     return df
-
-
-
-
