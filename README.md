@@ -73,39 +73,50 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 
 # <a name="c4"></a>4. Solução Desenvolvida
 
-**Salvar dados brutos**
-- Dados coletados pelos sensores são enviados ao servidor de ingestão.
-- A API "Coletar Dados" armazena essas informações no banco de dados hospedado em nuvem.
+**Sensores**
+- Simulação de sensores pelo Wokwi;
+- Código em C, configurando e habilitando a funcionalidade dos sensores.
 
-**Limpeza e tratamento**
-- Realiza pré-processamento e normalização;
-- Remoção de dados nulos ou ausentes;
-- Correção de dados inválidos;
-- Prepara os dados para análise preditiva e visualização;
+<p align="center">
+<img src = "assets/wokwi.jpg">
+  </p>
 
-**Análise preditiva com Machine Learning**
-- Modelos de machine learning são treinados com base em dados históricos de deslizamentos, padrões de chuva, inclinação e saturação do solo.
-- Esses modelos analisam os sinais captados pelos sensores e identificam:
-- Probabilidade de deslizamento em áreas monitoradas;
-- Níveis de risco geotécnico;
-- Anomalias ambientais fora do comportamento esperado.
-- O objetivo é antecipar eventos críticos e permitir evacuação ou contenção antecipada.
 
-**Visualização dos Dados em Dashboards**
-- Os dados processados e as predições são apresentados em dashboards desenvolvidos com Python (Streamlit/Plotly) ou R (Shiny).
-- Interface intuitiva para defesa civil, autoridades locais e população.
+**Database_Python**
+- Armazenamento dos dados no OracleDB.
+- Criado a tabela, MER, DER e modelo lógico;
+- Aplicação em Python de inserção automatica de dados na tabela, utilizando um arquivo .CSV;
+- Aplicação em Python de Monitoramento, utilizando Streamlit;
 
-**Informações exibidas:**
-- Status dos sensores em tempo real nas regiões monitoradas;
-- Alertas de risco com níveis (verde, amarelo, vermelho);
-- Mapas georreferenciados com zonas críticas;
-- Histórico de condições climáticas e movimentação do terreno;
-- Recomendações de ações preventivas (ex: evacuação, reforço de encostas).
+<p align="center">
+<img src = "assets/4.png">
+  </p>
 
-**Notificações e Resposta Operacional**
-- Notificações automáticas via chatbot, SMS, rádio comunitário ou aplicativo móvel;
-- Registro de todas as decisões e ações realizadas por autoridades e equipes técnicas para rastreabilidade;
-- Feedback das ocorrências para refinamento contínuo do modelo preditivo;
-- Estimativa do impacto humano e material em caso de confirmação do evento;
-- Geração automática de ordens de resposta (evacuação, isolamento de áreas, envio de equipes técnicas).
+<p align="center">
+<img src = "assets/2.png">
+  </p>
+
+<p align="center">
+<img src = "assets/5.png">
+  </p>
+
+**ML_Dados_Python**
+- Criado uma aplicação que cria dados simulados em massa dos sensores, para fins de treinamento de modelos;
+- Criado dados ficticios de sensores;
+- Análise estastistica, descritiva e visual dos dados;
+- Criado e treinado um modelo de Machine Learning para predição de riscos de deslizamentos, utilizando os dados dos sensores.
+
+**ML_Dados_Python**
+- Utilizando dados externos, treinamos um modelo de Machine Learning que contribui para a análise de risco de deslizamento;
+- Análise estastistica, descritiva e visual dos dados externos;
+- Utilizando o modelo desenvolvemos uma aplicação que permite o usuário prever os riscos. Utilizando Streamlit.
+
+<p align="center">
+<img src = "assets/9.png">
+  </p>
+
+<p align="center">
+<img src = "assets/7.png">
+  </p>
+
 
