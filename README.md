@@ -105,13 +105,13 @@ A solução consiste em uma plataforma de monitoramento ambiental em tempo real,
 **ML_Dados_Python**
 - Criado uma aplicação que cria dados simulados em massa dos sensores, para fins de treinamento de modelos;
 - Criado dados ficticios de sensores;
-- Análise estastistica, descritiva e visual dos dados;
+- Análise estatística, descritiva e visual dos dados;
 - Criado e treinado um modelo de Machine Learning para predição de riscos de deslizamentos, utilizando os dados dos sensores.
 
 **ML_Dados_Python**
 - Utilizando dados externos, treinamos um modelo de Machine Learning que contribui para a análise de risco de deslizamento;
 - Análise estastistica, descritiva e visual dos dados externos;
-- Utilizando o modelo desenvolvemos uma aplicação que permite o usuário prever os riscos. Utilizando Streamlit.
+- Utilizando o modelo de Machine Learning criado e Streamlit, desenvolvemos uma aplicação que permite o usuário prever os riscos de deslizamento com base nas variáveis que ele detectar no ambiente.
 
 <p align="center">
 <img src = "assets/9.png">
