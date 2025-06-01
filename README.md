@@ -31,11 +31,11 @@
 
 # <a name="c1"></a>1. Justificativa do Problema
 
-*Os deslizamentos de terra são uma ameaça a sociedade em geral, ao patrimônio e à infraestrutura, especialmente no Brasil onde estima-se que 8 milhões de brasileiros vivem em áreas de risco geológico, havendo muitas favelas, ocupação desordenada e alta incidência de chuvas. Esses eventos ocorrem, de forma súbita e sem aviso, resultando em tragédias como perdas humanas, perdas de moradias e elevados custos socioeconômicos. A situação é agravada pela ausência de sistemas preditivos , que dificultam a detecção precoce de riscos geotécnicos. Diante desse cenário, propomos uma solução tecnológica capaz de monitorar continuamente variáveis críticas — como umidade, temperatura e vibrações do solo, inclinação do terreno, e intensidade das chuvas —, identificar padrões de risco e emitir alertas preventivos. Essa abordagem permite uma resposta rápida e controlada principalmente pela análise de dados, facilitando tomadas de decisões em tempo real, assim minimizando os impactos do desastre e promovendo maior segurança para as comunidades afetadas.*
+*Os deslizamentos de terra são uma ameaça ao patrimônio e à infraestrutura, especialmente no Brasil onde estima-se que 8 milhões de brasileiros vivem em áreas de risco, havendo muitas favelas, ocupação desordenada e alta ocorrência de chuvas. Esses eventos ocorrem sem aviso, resultando em tragédias. Não existem sistemas preditivos, o que dificulta a detecção riscos de deslizaamentos. Propomos uma solução tecnológica capaz de monitorar continuamente algumas variáveis causadoras de deslizamentos — como umidade, temperatura, vibrações do solo, inclinação do terreno, e intensidade das chuvas. Identificando padrões de risco e emitindo alertas preventivos.*
 
 # <a name="c2"></a>2. Descrição da Solução Proposta
 
-A solução proposta consiste em uma plataforma inteligente de monitoramento ambiental em tempo real, baseada na integração de sensores IoT, armazenamento em nuvem, inteligência artificial e dashboards interativos. O objetivo é detectar antecipadamente sinais de risco geotécnico — como deslocamentos de solo, chuvas intensas e aumento de umidade —, permitindo decisões rápidas e assertivas que previnam desastres e protejam vidas.
+A solução consiste em uma plataforma de monitoramento ambiental em tempo real, baseada na integração de sensores IoT, armazenamento em nuvem, inteligência artificial e dashboards interativos. Queremos detectar antecipadamente sinais de risco — como deslocamentos de solo, chuvas intensas e aumento de umidade. Permitindo decisões rápidas e assertivas que previnam desastres e protejam vidas.
 
 - **Coletar dados em tempo real via sensores IoT**;
 
@@ -58,10 +58,10 @@ A solução proposta consiste em uma plataforma inteligente de monitoramento amb
 | Camada                   | Tecnologias                                         |
 |--------------------------|-----------------------------------------------------|
 | **Sensoriamento**        | ESP32                                               |
-| **Armazenamento**        | PostgreSQL                                          |
+| **Armazenamento**        | OracleDB                                            |
 | **Backend e APIs**       | Python, tratamentos de dados e serviços.            |
 | **IA / Machine Learning**| Streamlit, scikit-learn                             |
-| **Infraestrutura**       | AWS                                                 |
+| **Infraestrutura**       | AWS ou Azure                                        |
 
 
 # <a name="c4"></a>4. Pipeline de Dados
@@ -70,10 +70,10 @@ A solução proposta consiste em uma plataforma inteligente de monitoramento amb
 - Umidade excessiva no solo;
 - Vibrações sísmicas anormais;
 - Inclinação do terreno (movimentações milimétricas);
-- Volume de chuvas acumuladas;
-- Temperatura e pressão atmosférica.
+- Volume de chuvas;
+- Temperatura.
 
-
+# Solução Desenvolvida
 
 **Salvar dados brutos**
 - Dados coletados pelos sensores são enviados ao servidor de ingestão.
