@@ -102,6 +102,7 @@ if not df_ultimos.empty:
         ax.set_xlabel("Região")
         ax.set_ylabel("Quantidade de Alertas")
         ax.set_title("Alertas de Risco Alto por Região")
+        ax.plot([1, 2, 3], [4, 5, 6])
         st.pyplot(fig)
     else:
         st.info("Nenhum alerta de risco alto registrado no histórico.")
