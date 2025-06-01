@@ -97,7 +97,7 @@ if not df_ultimos.empty:
     df_alertas = obter_frequencia_alertas()
 
     if not df_alertas.empty:
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(5, 3))  
         ax.bar(df_alertas['REGIAO'], df_alertas['TOTAL_ALERTAS'], color='red')
         ax.set_xlabel("Região")
         ax.set_ylabel("Quantidade de Alertas")
