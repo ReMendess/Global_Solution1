@@ -42,7 +42,6 @@ risco = modelo.predict(X_input_scaled)[0]
 
 # Exibir resultado
 st.subheader("Resultado da Predição")
-st.write(f"Nível de risco de deslizamento: **{risco:.3f}**")
 
 if risco < 0.3:
     st.success("Baixo risco")
