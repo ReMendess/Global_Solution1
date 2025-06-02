@@ -5,7 +5,7 @@ import streamlit as st
 import time
 
 @st.cache_data(show_spinner=True)
-def _criar_dados(n_samples= 2000):
+def _criar_dados(n_samples= 5000):
     np.random.seed(999)
     time.sleep(2)
     print("Carregando data set. . .")
@@ -23,9 +23,9 @@ def _criar_dados(n_samples= 2000):
     Inclinacao_terreno = np.random.choice(['Leve', 'Moderada', 'Forte'], size=n_samples, p=[0.3, 0.4, 0.3])
     tipo_solo = np.random.choice(['Arenoso', 'Argiloso', 'Rochoso'], size=n_samples, p=[0.3, 0.45, 0.25])
 
-    mapa_Inclinacao = {'Leve': 1.05, 'Moderada': 1.15, 'Forte': 1.3}
-    mapa_solo = {'Arenoso': 1.15, 'Argiloso': 1.05, 'Rochoso': 0.90}
-    mapa_chuva = {'Sem chuva': 0, 'Chovendo': 2.5}
+    mapa_Inclinacao = {'Leve': 1.05, 'Moderada': 1.35, 'Forte': 1.5}
+    mapa_solo = {'Arenoso': 1.35, 'Argiloso': 1.10, 'Rochoso': 0.95}
+    mapa_chuva = {'Sem chuva': 0, 'Chovendo': 1.8}
 
     #efeitos
     efeito_inclinacao = np.vectorize(mapa_Inclinacao.get)(Inclinacao_terreno)
@@ -34,7 +34,7 @@ def _criar_dados(n_samples= 2000):
 
     risco = (
         (temperatura - 20) * 0.015 +
-        (Umidade - 50) * 0.1 +
+        (Umidade - 50) * 0.05 +
         vibracao_total * 1.2 +
         efeito_chuva
     ) * efeito_inclinacao * efeito_solo
@@ -42,8 +42,8 @@ def _criar_dados(n_samples= 2000):
     risco += np.random.normal(loc=0, scale=0.4, size=n_samples)
     risco = np.clip(risco, a_min=0, a_max=None)
 
-    nivel_risco = np.where(risco < 3.35, 'Baixo',
-                           np.where(risco < 5.5, 'Médio', 'Alto'))
+    nivel_risco = np.where(risco < 2.5, 'Baixo',
+                           np.where(risco < 4.5, 'Médio', 'Alto'))
     # Criando o DataFrame final
     df = pd.DataFrame({
         'Região': Regiao,
@@ -57,3 +57,7 @@ def _criar_dados(n_samples= 2000):
         'Nivel de Risco': nivel_risco
     })
     return df
+
+
+
+
