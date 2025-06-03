@@ -55,6 +55,51 @@ cor_matrix <- cor(num_vars)
 print(cor_matrix)
 corrplot(cor_matrix, method = "circle", tl.col = "black", tl.cex = 0.8)
 
+
+# Calcular médias por região
+medias_por_regiao <- dados %>%
+  group_by(Regiao) %>%
+  summarise(
+    Temperatura_media = mean(Temperatura),
+    Umidade_media = mean(Umidade),
+    Vibracao_media = mean(Vibracao),
+    Risco_medio = mean(Risco)
+  )
+
+# Mostrar resultados
+print(medias_por_regiao)
+
+# Plotar as médias de risco por região
+ggplot(medias_por_regiao, aes(x = Regiao, y = Risco_medio, fill = Regiao)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Risco Médio por Região", y = "Risco Médio") +
+  theme_minimal()
+
+# Temperatura Média por Região
+ggplot(medias_por_regiao, aes(x = Regiao, y = Temperatura_media, fill = Regiao)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Temperatura Média por Região", y = "Temperatura Média") +
+  theme_minimal()
+
+
+# Calcular a proporção de inclinação por região
+proporcao_inclinacao <- dados %>%
+  group_by(Regiao, Inclinacao) %>%
+  summarise(Contagem = n(), .groups = "drop") %>%
+  group_by(Regiao) %>%
+  mutate(Proporcao = Contagem / sum(Contagem))
+
+# Visualizar a tabela
+print(proporcao_inclinacao)
+
+# Plotar gráfico de barras empilhadas
+ggplot(proporcao_inclinacao, aes(x = Regiao, y = Proporcao, fill = Inclinacao)) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(title = "Proporção de Inclinação por Região", y = "Proporção", x = "Região") +
+  theme_minimal()
+
+
 # Boxplot da temperatura por nível de risco
 ggplot(dados, aes(x = Nivel_Risco, y = Temperatura, fill = Nivel_Risco)) +
   geom_boxplot() +
@@ -78,4 +123,3 @@ ggplot(dados, aes(x = Regiao, y = Risco, fill = Chuva)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Risco por Região e Condição de Chuva", y = "Risco") +
   theme_minimal()
-
