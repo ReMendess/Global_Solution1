@@ -5,7 +5,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
-from dados_sensores import _criar_dados  # import da função
+from criar_dados import _criar_dados  # import da função
 df = _criar_dados()
 
 st.title("Analise de dados")
