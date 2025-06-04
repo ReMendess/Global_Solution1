@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error
 
-from dados_sensores import _criar_dados
+from criar_dados import _criar_dados
 
 st.set_page_config(page_title='Modelo de Risco de Deslizamento', layout='wide')
 st.title('Modelagem Preditiva de Risco de Deslizamento')
